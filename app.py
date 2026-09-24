@@ -81,7 +81,8 @@ def handle_voice():
         return jsonify({'error': 'No audio file provided'}), 400
         
     audio_file = request.files['audio']
-    temp_path = "temp_audio.webm"
+    import tempfile
+    temp_path = os.path.join(tempfile.gettempdir(), "temp_audio.webm")
     audio_file.save(temp_path)
     
     try:
