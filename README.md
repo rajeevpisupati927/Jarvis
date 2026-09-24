@@ -40,5 +40,16 @@ An advanced, fully voice-activated AI assistant inspired by Tony Stark's Iron Ma
    Open your browser and navigate to:
    `http://localhost:8080`
 
+## Vercel Deployment
+
+This project includes a `vercel.json` file, making it instantly deployable to Vercel as a Serverless Python application.
+
+1. Create a new project on [Vercel](https://vercel.com).
+2. Import your GitHub repository.
+3. In the setup screen, change the Project Name to be strictly lowercase (e.g. `jarvis`).
+4. Go to the **Environment Variables** section and add:
+   - `GROQ_API_KEY`: Your exact Groq API Key.
+5. Click **Deploy**. Vercel will automatically route traffic through `app.py`.
+
 ## Usage
 Click the **"ACTIVATE J.A.R.V.I.S."** button. Wait for the audio uplink to secure, then simply speak naturally. You can ask him to search the web, write code, tell you the time, or open Netflix. When you're done, click **"DEACTIVATE"**.
