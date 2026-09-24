@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S. Advanced Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hex-background"></div>
+    
+    <div class="container">
+        <!-- HUD Elements -->
+        <div class="hud-element top-left">
+            <div class="hud-bar"></div>
+            <div class="hud-bar short"></div>
+            <div class="hud-text">SYS.MEM: OK</div>
+        </div>
+        <div class="hud-element top-right">
+            <div class="hud-text">UPLINK: SECURE</div>
+            <div class="hud-grid"></div>
+        </div>
+        <div class="hud-element bottom-right">
+            <svg viewBox="0 0 100 100" class="radar">
+                <circle cx="50" cy="50" r="45" />
+                <circle cx="50" cy="50" r="30" />
+                <circle cx="50" cy="50" r="15" />
+                <line x1="50" y1="5" x2="50" y2="95" />
+                <line x1="5" y1="50" x2="95" y2="50" />
+                <line x1="50" y1="50" x2="80" y2="20" class="sweep" />
+            </svg>
+        </div>
+
+        <header>
+            <div class="system-status">
+                <div class="status-item"><span class="dot green"></span> CORE ONLINE</div>
+                <div class="status-item"><span class="dot blue"></span> AUDIO MOD</div>
+                <div class="status-item"><span class="dot blue"></span> GLOBAL NET</div>
+            </div>
+            <div class="time-display" id="time-display">00:00:00</div>
+        </header>
+
+        <main>
+            <!-- Core Arc Reactor / AI visualizer -->
+            <div class="ai-core-container" id="ai-core">
+                <div class="core-ring outer-ring"></div>
+                <div class="core-ring middle-ring"></div>
+                <div class="core-ring inner-ring"></div>
+                <div class="core-center">
+                    <span id="core-text">J.A.R.V.I.S.</span>
+                </div>
+            </div>
+
+            <!-- Terminal / Output Display -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span>COMMUNICATION LINK</span>
+                    <span class="decor-line"></span>
+                </div>
+                <div class="terminal-content" id="output-log">
+                    <p class="system-msg">Initializing Stark Industries Protocol...</p>
+                    <p class="system-msg">J.A.R.V.I.S. online.</p>
+                </div>
+                
+                <!-- Fallback Text Input -->
+                <div class="text-input-container">
+                    <span class="prompt-arrow">></span>
+                    <input type="text" id="cmd-input" placeholder="MANUAL OVERRIDE INPUT..." autocomplete="off">
+                </div>
+            </div>
+
+            <!-- Armor Database / Schematic Viewer -->
+            <div class="armor-database">
+                <div class="terminal-header">
+                    <span>ARMOR SCHEMATICS</span>
+                    <span class="decor-line"></span>
+                </div>
+                <div class="carousel-container">
+                    <div class="carousel" id="armor-carousel">
+                        <div class="armor-card active">
+                            <div class="armor-model hulkbuster">
+                                <svg viewBox="0 0 100 100" class="armor-svg">
+                                    <path d="M 20 50 L 20 20 L 30 10 L 70 10 L 80 20 L 80 50 L 70 85 L 30 85 Z" fill="none" stroke="var(--cyan)" stroke-width="3" filter="drop-shadow(0 0 5px var(--cyan))"/>
+                                    <path d="M 30 35 L 45 35 L 40 45 Z" fill="var(--cyan)" filter="drop-shadow(0 0 8px #fff)"/>
+                                    <path d="M 70 35 L 55 35 L 60 45 Z" fill="var(--cyan)" filter="drop-shadow(0 0 8px #fff)"/>
+                                    <line x1="20" y1="55" x2="80" y2="55" stroke="var(--cyan)" stroke-width="2"/>
+                                    <rect x="35" y="65" width="30" height="8" fill="none" stroke="var(--cyan)" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="armor-info">
+                                <h3>MARK XLIV</h3>
+                                <h4>HULKBUSTER</h4>
+                                <p>CLASS: HEAVY BRAWLER</p>
+                                <p>STATUS: DEPLOYABLE</p>
+                            </div>
+                        </div>
+                        <div class="armor-card next">
+                            <div class="armor-model iron-spider">
+                                <svg viewBox="0 0 100 100" class="armor-svg">
+                                    <circle cx="50" cy="50" r="15" fill="none" stroke="var(--cyan)" stroke-width="3" filter="drop-shadow(0 0 5px var(--cyan))"/>
+                                    <path d="M 50 35 L 50 5 M 60 40 L 95 15 M 65 50 L 95 50 M 60 60 L 90 90 M 50 65 L 50 95 M 40 60 L 10 90 M 35 50 L 5 50 M 40 40 L 5 15" stroke="var(--cyan)" stroke-width="4" fill="none" filter="drop-shadow(0 0 5px var(--cyan))"/>
+                                </svg>
+                            </div>
+                            <div class="armor-info">
+                                <h3>ITEM 17A</h3>
+                                <h4>IRON SPIDER</h4>
+                                <p>CLASS: NANO-TECH AGILE</p>
+                                <p>STATUS: ACTIVE</p>
+                            </div>
+                        </div>
+                        <div class="armor-card prev">
+                            <div class="armor-model mark-85">
+                                <svg viewBox="0 0 100 100" class="armor-svg">
+                                    <path d="M 30 20 C 30 0, 70 0, 70 20 C 85 30, 85 60, 60 95 L 50 100 L 40 95 C 15 60, 15 30, 30 20 Z" fill="none" stroke="var(--cyan)" stroke-width="2" filter="drop-shadow(0 0 5px var(--cyan))"/>
+                                    <path d="M 30 40 L 45 40 L 40 50 Z" fill="var(--cyan)" filter="drop-shadow(0 0 8px #fff)"/>
+                                    <path d="M 70 40 L 55 40 L 60 50 Z" fill="var(--cyan)" filter="drop-shadow(0 0 8px #fff)"/>
+                                    <line x1="45" y1="70" x2="55" y2="70" stroke="var(--cyan)" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="armor-info">
+                                <h3>MARK LXXXV</h3>
+                                <h4>NANO-SUIT</h4>
+                                <p>CLASS: ADVANCED COMBAT</p>
+                                <p>STATUS: ONLINE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="nav-btn" id="prev-armor">&lt;</button>
+                    <button class="nav-btn" id="next-armor">&gt;</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="controls-wrapper">
+                <div class="hud-line left"></div>
+                <button id="listen-btn" class="activate-btn">
+                    <span class="btn-text">ACTIVATE J.A.R.V.I.S.</span>
+                    <div class="btn-scanline"></div>
+                </button>
+                <button id="stop-btn" class="stop-btn hidden">
+                    <span class="btn-text">DEACTIVATE</span>
+                    <div class="btn-scanline"></div>
+                </button>
+                <div class="hud-line right"></div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

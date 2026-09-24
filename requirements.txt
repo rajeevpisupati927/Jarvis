@@ -1,0 +1,5 @@
+speechrecognition
+pyttsx3
+flask
+python-dotenv
+groq
